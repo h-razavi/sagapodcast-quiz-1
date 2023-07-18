@@ -184,8 +184,8 @@ const quizData: QuizDataType[] = [
     question: "سر بریده سخنگو در اساطیر نورس",
     answers: [
       { text: "ایمیر", point: 0 },
-      { text: "میمیر", point: 0 },
-      { text: "تیر", point: 1 },
+      { text: "میمیر", point: 1 },
+      { text: "تیر", point: 0 },
       { text: "فنریر", point: 0 },
     ],
   },
@@ -208,7 +208,7 @@ const quizData: QuizDataType[] = [
       { text: "وُلکان", point: 1 },
       { text: "مرکوری", point: 0 },
       { text: "ژوپیتر", point: 0 },
-      { text: "مرکوری", point: 0 },
+      { text: "مارس", point: 0 },
     ],
   },
   {

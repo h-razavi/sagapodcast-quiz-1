@@ -9,6 +9,7 @@ type Props = {
 function Welcome({ onNext }: Props) {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
+  const storedEmail = localStorage.getItem("email");
   function handleUserInfo(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const enteredName = nameInputRef.current!.value;
@@ -21,6 +22,8 @@ function Welcome({ onNext }: Props) {
       localStorage.setItem("name", nameInputRef.current!.value);
       localStorage.setItem("email", emailInputRef.current!.value);
       onNext();
+    } else if (storedEmail && storedEmail===enteredEmail) {
+      alert("شما قبلا با این ایمیل در کوئیز شرکت کرده اید");
     } else {
       alert("لطفا اطلاعات خود را به شکل صحیح وارد نمائید");
     }
