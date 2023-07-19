@@ -31,6 +31,7 @@ function App() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center py-12 px-24  bg-welcomeBG bg-repeat overflow-hidden bg-fixed">
+
       {componentFlow[currentComponentIndex].component}
     </main>
   );
