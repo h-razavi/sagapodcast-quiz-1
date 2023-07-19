@@ -48,7 +48,7 @@ function Welcome({ onNext }: Props) {
           </p>
           <p className="my-4 italic">برای شروع نام و ایمیل خود را وارد کنید:</p>
           <form className=" w-[50%]" onSubmit={handleUserInfo}>
-            <div className="flex gap-8 justify-center">
+            <div className="flex flex-col lg:flex-row gap-8 justify-center">
               <motion.input
                 whileFocus={{ scale: 1.2 }}
                 transition={{ duration: 0.5, type: "tween" }}

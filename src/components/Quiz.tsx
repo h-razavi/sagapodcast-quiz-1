@@ -54,7 +54,7 @@ function Quiz({ onNext }: Props) {
           {/* <div className="w-24 h-24 shadow-md absolute top-0 left-8 rounded-b-full flex justify-center items-center">
             <div className="w-16 h-16 rounded-full bg-sky-800 bg-opacity-30"></div>
           </div> */}
-          <h2 className="text-question font-extrabold text-3xl mb-4">
+          <h2 className="text-question font-extrabold text-2xl md:text-3xl mx-4 mb-4">
             {currentQuestion.question}
           </h2>
           <ul>

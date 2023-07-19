@@ -17,7 +17,7 @@ function Final({ onNext }: Props) {
         className="text-center"
       >
         <Container>
-          <h2 className="text-4xl text-question font-extrabold">
+          <h2 className="md:text-4xl text-2xl mx-4 text-question font-extrabold">
             نتایج با موفقیت ارسال شد
           </h2>
           <p className="text-2xl text-sky-700 italic my-4"></p>

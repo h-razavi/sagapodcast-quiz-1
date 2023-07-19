@@ -8,7 +8,8 @@ export default {
     extend: {
       backgroundImage: {
         welcomeBG: "url('/logo-nobg.png')",
-        card: "url('/paeen.jpg')"
+        card: "url('/paeen.jpg')",
+        cardSMall: "url('/paeen-sm.jpg')",
       },
       backgroundColor : {
         card: "#ede2cc",
