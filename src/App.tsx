@@ -6,36 +6,32 @@ import QuizResults from "./components/QuizResults";
 import Welcome from "./components/Welcome";
 import Final from "./components/Final";
 
-
-const supabaseUrl = "https://yetrqcdnkjcfcmsbaeei.supabase.co"
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl = "https://yetrqcdnkjcfcmsbaeei.supabase.co";
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
 
-  console.log(supabaseKey)
-
   const score = Number(localStorage.getItem("userScore"));
-  const name = localStorage.getItem("name")
-  const email = localStorage.getItem("email")
-
-
-
-
-  
+  const name = localStorage.getItem("name");
+  const email = localStorage.getItem("email");
 
   function handleComponentChange() {
-    if (currentComponentIndex < componentFlow.length-1) {
+    if (currentComponentIndex < componentFlow.length - 1) {
       setCurrentComponentIndex((prevComponentIndex) => prevComponentIndex + 1);
-    } else if (currentComponentIndex===componentFlow.length-1) {
-      setCurrentComponentIndex(0)
-      localStorage.clear()
+    } else if (currentComponentIndex === componentFlow.length - 1) {
+      setCurrentComponentIndex(0);
+      localStorage.clear();
     }
   }
 
-  async function handleSubmitData(){
-    const {error} = await supabase.from("users").insert({name,email,score}).select()
+  async function handleSubmitData() {
+    const { error } = await supabase
+      .from("users")
+      .insert({ name, email, score })
+      .select();
+    console.log(error);
     handleComponentChange()
   }
 
@@ -48,8 +44,7 @@ function App() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center py-12 px-24  bg-welcomeBG bg-repeat overflow-scroll bg-fixed">
-
+    <main className="flex min-h-screen flex-col items-center justify-center py-12 px-24  bg-welcomeBG bg-repeat lg:overflow-hidden overflow-auto bg-fixed">
       {componentFlow[currentComponentIndex].component}
     </main>
   );

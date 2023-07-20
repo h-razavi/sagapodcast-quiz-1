@@ -2,16 +2,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Container from "./Container";
 import Button from "./Button";
 
+
 type Props = {
   onNext: () => void;
 };
 
 function QuizResults({ onNext }: Props) {
-  const score = Number(localStorage.getItem("userScore"));
-  const name = localStorage.getItem("name")
-  const email = localStorage.getItem("email")
 
-
+let score = localStorage.getItem("userScore")
 
   return (
     <AnimatePresence>
