@@ -50,7 +50,7 @@ function Welcome({ onNext }: Props) {
         </p>
         <p className="my-4 italic">برای شروع نام و ایمیل خود را وارد کنید:</p>
         <UserInfoForm onNext={onNext} />
-        {modalIsOpen && <Modal onCloseModal={handleCloseModal} />}
+        {modalIsOpen && <Modal modalOption="rules" onCloseModal={handleCloseModal} />}
       </Container>
     </motion.section>
   );

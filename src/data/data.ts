@@ -12,7 +12,7 @@ export interface QuizDataType {
 }
 
 const quizData: QuizDataType[] = [
-  {
+ /* {
     id: "q1",
     num: 1,
     question: "کدامیک از شخصیت‌های زیر جزء خدایان المپی نیست",
@@ -199,7 +199,7 @@ const quizData: QuizDataType[] = [
       { text: "گاو", point: 0 },
       { text: "کبوتر", point: 0 },
     ],
-  },
+  },*/  
   {
     id: "q18",
     num: 18,
