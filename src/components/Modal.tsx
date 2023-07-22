@@ -41,6 +41,10 @@ function Modal({ onCloseModal, modalOption }: Props) {
                       تکرار فرد از قرعه‌کشی نهائی حذف می‌شود{" "}
                     </li>
                     <li className="list-disc list-inside pr-4 my-4">
+                      پس از قرعه‌کشی از طریق ایمیل با برندگان تماس گرفته خواهد
+                      شد. لطفاً در زمان وارد کردن ایمیل خود دقت فرمائید.{" "}
+                    </li>
+                    <li className="list-disc list-inside pr-4 my-4">
                       مدت زمان این کوئیز از زمان فشردن دکمه شروع 5 دقیقه بوده و
                       پس گذشت این زمان کوئیز خود به خود پایان می‌یابد. امتیاز
                       شما پس از این زمان ثبت شده و قادر به ارسال آن برای شرکت در
@@ -58,17 +62,16 @@ function Modal({ onCloseModal, modalOption }: Props) {
                     </li>
                   </ul>
                 </div>
-              )
-            :
-            <div>
-            <h2 className="text-2xl mx-4 text-question font-extrabold">
-            ممنون از شما به خاطر شرکت در این کوئیز!
-          </h2>
-          <p className="text-md text-sky-700 italic m-4">
-            برای ارسال و مشاهده نتایج دکمه زیر رو بزنید
-          </p>
-          </div>
-            }
+              ) : (
+                <div>
+                  <h2 className="text-2xl mx-4 text-question font-extrabold">
+                    ممنون از شما به خاطر شرکت در این کوئیز!
+                  </h2>
+                  <p className="text-md text-sky-700 italic m-4">
+                    برای ارسال و مشاهده نتایج دکمه زیر رو بزنید
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -77,7 +80,7 @@ function Modal({ onCloseModal, modalOption }: Props) {
               onClick={onCloseModal}
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
-            {modalOption==="rules"?"متوجه شدم":"ادامه"}
+              {modalOption === "rules" ? "متوجه شدم" : "ادامه"}
             </button>
           </div>
         </div>

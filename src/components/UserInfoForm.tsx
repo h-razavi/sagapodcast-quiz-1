@@ -12,8 +12,10 @@ function UserInfoForm({ onNext }: Props) {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const storedEmail = localStorage.getItem("email");
-  const userID = localStorage.setItem("userID", uuidv4());
+  localStorage.setItem("userID", uuidv4());
 
+
+  
 
   const validateEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/;
@@ -39,6 +41,11 @@ function UserInfoForm({ onNext }: Props) {
     const enteredName = nameInputRef.current!.value;
     const enteredEmail = emailInputRef.current!.value;
 
+    if(enteredEmail===storedEmail){
+      alert("شما قبلا با این ایمیل در کوئیز شرکت کرده اید")
+      return;
+    }
+
     const formIsValid = enteredName.length > 3 && validateEmail(enteredEmail);
     if(!formIsValid){
         setFormHasError(true);
@@ -48,8 +55,6 @@ function UserInfoForm({ onNext }: Props) {
       localStorage.setItem("name", nameInputRef.current!.value);
       localStorage.setItem("email", emailInputRef.current!.value);
       onNext();
-    } else if (storedEmail && storedEmail === enteredEmail) {
-      alert("شما قبلا با این ایمیل در کوئیز شرکت کرده اید");
     }
   }
 

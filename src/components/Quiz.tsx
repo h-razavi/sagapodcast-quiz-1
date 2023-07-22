@@ -1,35 +1,27 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+//
+import quizData, { AnswerType } from "../data/data";
+//
 import Container from "./Container";
 import QuizOption from "./QuizOption";
-import Button from "./Button";
-import quizData, { AnswerType } from "../data/data";
 import Modal from "./Modal";
 
 type Props = {
   onNext: () => void;
 };
-const initialOptionStyles =
-  "w-48 h-6 bg-opacity-30 rounded-md border-2 my-4 p-6 flex items-center justify-center cursor-pointer";
-const initialOptionColors = " text-sky-800 bg-sky-600 border-sky-600";
-const correctOptionColors =
-  "bg-lime-300 text-lime-800 border-lime-500 animate-pulse";
-const wrongOptionColors =
-  "bg-rose-300 text-rose-800 border-rose-500 animate-pulse";
 
 function Quiz({ onNext }: Props) {
+  //Defining the states
   const [currentQuestionIndex, setCurrentQuestionInex] = useState(0);
   const [currentUserScore, setCurrentUserScore] = useState(0);
   const [quizIsCompleted, setQuizIsCompleted] = useState(false);
   const [optionSelected, setOptionSelected] = useState(false);
 
-  const currentQuestion = useMemo(
-    () => quizData[currentQuestionIndex],
-    [currentQuestionIndex]
-  ); //check later!!!
+  const currentQuestion = quizData[currentQuestionIndex];
 
+  //Handling the behavior of when a user selects an option
   function handleSelectOption(answer: AnswerType) {
-    // localStorage.setItem("userScore", currentUserScore.toString());
     setCurrentUserScore((prevScore) => prevScore + answer.point);
     setOptionSelected(true);
     setTimeout(() => {

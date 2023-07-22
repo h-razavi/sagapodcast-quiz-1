@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import Quiz from "./components/Quiz";
-import QuizOutro from "./components/QuizOutro";
 import QuizResults from "./components/QuizResults";
 import Welcome from "./components/Welcome";
 import Final from "./components/Final";
 
-const supabaseUrl = "https://yetrqcdnkjcfcmsbaeei.supabase.co";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
