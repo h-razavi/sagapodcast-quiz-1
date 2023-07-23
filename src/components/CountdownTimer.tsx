@@ -33,9 +33,12 @@ function CountdownTimer({ initialMinute, handleTimeout }: Props) {
     <div>
       {minutes === 0 && seconds === 0 ? null : (
         <div className="w-24 h-24 shadow-md absolute top-0 left-36 rounded-b-full flex justify-center items-center">
-        <div dir="ltr" className="w-16 h-16 rounded-full bg-rose-800 bg-opacity-30 grid place-items-center font-bold">
-            {minutes} : {seconds<10?`0${seconds}`:seconds}
-        </div>
+          <div
+            dir="ltr"
+            className="w-16 h-16 rounded-full bg-rose-800 bg-opacity-30 grid place-items-center font-bold"
+          >
+            {minutes} : {seconds < 10 ? `0${seconds}` : seconds}
+          </div>
         </div>
       )}
     </div>

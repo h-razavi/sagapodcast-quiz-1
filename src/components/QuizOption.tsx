@@ -25,7 +25,11 @@ function QuizOption({ text, point, selected, onSelect }: Props) {
   }
 
   return (
-    <button onClick={onSelect} className={changeColorsOnSelect(point)} disabled={selected} >
+    <button
+      onClick={onSelect}
+      className={changeColorsOnSelect(point)}
+      disabled={selected}
+    >
       {text}
     </button>
   );

@@ -199,7 +199,7 @@ const quizData: QuizDataType[] = [
       { text: "گاو", point: 0 },
       { text: "کبوتر", point: 0 },
     ],
-  },  
+  },
   {
     id: "q18",
     num: 18,

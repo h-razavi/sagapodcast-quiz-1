@@ -6,14 +6,12 @@ import Container from "./Container";
 import Modal from "./Modal";
 import UserInfoForm from "./UserInfoForm";
 
-
 type Props = {
   onNext: () => void;
 };
 
 function Welcome({ onNext }: Props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
 
   //Modal open/close functions
   function handleOpenModal() {
@@ -47,13 +45,14 @@ function Welcome({ onNext }: Props) {
             className="italic text-blue-500 cursor-pointer"
           >
             شرایط و قوانین{" "}
-          </span>
-          {" "}
+          </span>{" "}
           رو بخونید
         </p>
         <p className="my-4 italic">برای شروع نام و ایمیل خود را وارد کنید:</p>
         <UserInfoForm onNext={onNext} />
-        {modalIsOpen && <Modal modalOption="rules" onCloseModal={handleCloseModal} />}
+        {modalIsOpen && (
+          <Modal modalOption="rules" onCloseModal={handleCloseModal} />
+        )}
       </Container>
     </motion.section>
   );

@@ -8,7 +8,7 @@ type dataType = {
   email: string;
   score: number;
   userID?: string;
-  createdAt : string;
+  createdAt: string;
 }[];
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -18,14 +18,13 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 function Admin({}: Props) {
   const [data, setData] = useState<dataType | null>();
   const [hasAccess, setHasAccess] = useState(false);
-  const [enteredPassword , setEnteredPassword] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
 
   const adminPass = import.meta.env.VITE_ADMIN_PASS;
 
-
-  function checkEnteredPassword(){
-    if(enteredPassword===adminPass){
-        setHasAccess(true)
+  function checkEnteredPassword() {
+    if (enteredPassword === adminPass) {
+      setHasAccess(true);
     }
   }
 
@@ -44,11 +43,14 @@ function Admin({}: Props) {
   return (
     <div className="text-white p-24">
       {!hasAccess ? (
-        <form className="flex flex-col items-center gap-8 justify-center" onSubmit={checkEnteredPassword}>
+        <form
+          className="flex flex-col items-center gap-8 justify-center"
+          onSubmit={checkEnteredPassword}
+        >
           <input
             type="password"
             className="w-[25%] h-12 px-8 bg-transparent border-2 border-cyan-200 rounded-xl"
-            onChange={(e)=>setEnteredPassword(e.target.value)}
+            onChange={(e) => setEnteredPassword(e.target.value)}
           />
           <button className="bg-cyan-600 px-8 py-4 rounded-lg">برو</button>
         </form>
@@ -62,7 +64,9 @@ function Admin({}: Props) {
               <div className="w-[33%] border-l-4 border-white p-4">نام</div>
               <div className="w-[33%] border-l-4 border-white p-4">ایمیل</div>
               <div className="w-[33%] border-l-4 border-white p-4">امتیاز</div>
-              <div className="w-[33%] border-l-4 border-white p-4">تاریخ ثبت</div>
+              <div className="w-[33%] border-l-4 border-white p-4">
+                تاریخ ثبت
+              </div>
             </div>
             {data &&
               data.map((user) => (
