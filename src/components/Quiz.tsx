@@ -19,8 +19,6 @@ function Quiz({ onNext }: Props) {
   const [quizIsCompleted, setQuizIsCompleted] = useState(false);
   const [optionSelected, setOptionSelected] = useState(false);
 
-  
-
   const currentQuestion = quizData[currentQuestionIndex];
 
   //Handling the behavior of when a user selects an option
@@ -37,7 +35,6 @@ function Quiz({ onNext }: Props) {
     }, 1000);
   }
 
-
   //Registering the current user score to localStorage
   useEffect(() => {
     localStorage.setItem("userScore", currentUserScore.toString());
@@ -52,13 +49,15 @@ function Quiz({ onNext }: Props) {
         transition={{ delay: 0.2, duration: 1, type: "spring", stiffness: 50 }}
         className="text-center"
       >
+
+
         <Container>
           <div className="w-24 h-24 shadow-md absolute top-0 left-8 rounded-b-full flex justify-center items-center">
             <div className="w-16 h-16 rounded-full bg-sky-800 bg-opacity-30 grid place-items-center font-bold">
               {currentUserScore}
             </div>
           </div>
-            <CountdownTimer initialMinute={5} handleTimeout={onNext} />
+          <CountdownTimer initialMinute={0} handleTimeout={()=>setQuizIsCompleted(true)} />
           <h2 className="text-question font-extrabold text-2xl md:text-3xl mx-4 mb-4">
             {currentQuestion.question}
           </h2>
@@ -83,9 +82,8 @@ function Quiz({ onNext }: Props) {
           {quizIsCompleted && (
             <Modal modalOption="outro" onCloseModal={onNext} />
           )}
-          {/* {quizIsCompleted && <Button onNext={onNext}>ادامه</Button>} */}
         </Container>
-      </motion.section>
+      </motion.section> 
     </AnimatePresence>
   );
 }

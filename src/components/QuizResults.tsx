@@ -1,15 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "./Container";
 import Button from "./Button";
-
+import LoadingSpinner from "./LoadingSpinner";
 
 type Props = {
   onNext: () => void;
+  loading: boolean;
 };
 
-function QuizResults({ onNext }: Props) {
-
-let score = localStorage.getItem("userScore")
+function QuizResults({ onNext, loading }: Props) {
+  let score = localStorage.getItem("userScore");
 
   return (
     <AnimatePresence>
@@ -26,9 +26,14 @@ let score = localStorage.getItem("userScore")
               ? `تبریک! شما به ${score} سوال از 20 سوال این کوئیز جواب درست دادید`
               : "متاسفانه خطایی در ثبت امتیاز پیش اومد :("}
           </h2>
-          <p className="text-2xl text-sky-700 italic m-4">
-            برای ارسال نتایج دکمه زیر رو بزنید
-          </p>
+          {!loading ? (
+            <p className="text-2xl text-sky-700 italic m-4">
+              برای ارسال نتایج دکمه زیر رو بزنید
+            </p>
+          ) : (
+            <LoadingSpinner />
+          )}
+
           <Button onNext={onNext}>ثبت</Button>
         </Container>
       </motion.section>

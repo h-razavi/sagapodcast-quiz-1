@@ -1,16 +1,21 @@
 import { useState } from "react";
+//
 import { createClient } from "@supabase/supabase-js";
+//
 import Quiz from "./components/Quiz";
 import QuizResults from "./components/QuizResults";
 import Welcome from "./components/Welcome";
 import Final from "./components/Final";
 
+
+//configuring supabase client
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
+  const [loading , setLoading] = useState(false)
 
   const score = Number(localStorage.getItem("userScore"));
   const name = localStorage.getItem("name");
@@ -27,20 +32,21 @@ function App() {
   }
 
   async function handleSubmitData() {
+    setLoading(true)
     const { error } = await supabase
       .from("users")
       .insert({ name, email, score , userID })
       .select();
     console.log(error);
+    setLoading(false)
     handleComponentChange()
   }
 
   const componentFlow = [
     { component: <Welcome onNext={handleComponentChange} />, id: "c1" },
     { component: <Quiz onNext={handleComponentChange} />, id: "c2" },
-    // { component: <QuizOutro onNext={handleComponentChange} />, id: "c3" },
-    { component: <QuizResults onNext={handleSubmitData} />, id: "c4" },
-    { component: <Final onNext={handleComponentChange} />, id: "c5" },
+    { component: <QuizResults onNext={handleSubmitData} loading={loading} />, id: "c3" },
+    { component: <Final onNext={handleComponentChange} />, id: "c4" },
   ];
 
   return (

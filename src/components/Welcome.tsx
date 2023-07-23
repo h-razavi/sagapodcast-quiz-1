@@ -1,8 +1,11 @@
 import { useState } from "react";
+//
 import { motion } from "framer-motion";
+//
 import Container from "./Container";
 import Modal from "./Modal";
 import UserInfoForm from "./UserInfoForm";
+import LoadingSpinner from "./LoadingSpinner";
 
 type Props = {
   onNext: () => void;

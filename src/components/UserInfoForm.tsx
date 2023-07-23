@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
+//
 import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
+//
 import Button from "./Button";
-import {v4 as uuidv4} from "uuid"
 
 type Props = {
   onNext: () => void;
@@ -14,24 +16,21 @@ function UserInfoForm({ onNext }: Props) {
   const storedEmail = localStorage.getItem("email");
   localStorage.setItem("userID", uuidv4());
 
-
-  
-
   const validateEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
   };
 
-  function handleBlur(){
+  function handleBlur() {
     const enteredName = nameInputRef.current!.value;
     const enteredEmail = emailInputRef.current!.value;
 
     const formIsValid = enteredName.length > 3 && validateEmail(enteredEmail);
 
-    if(!formIsValid){
-      setFormHasError(true)
+    if (!formIsValid) {
+      setFormHasError(true);
     } else {
-      setFormHasError(false)
+      setFormHasError(false);
     }
   }
 
@@ -41,15 +40,15 @@ function UserInfoForm({ onNext }: Props) {
     const enteredName = nameInputRef.current!.value;
     const enteredEmail = emailInputRef.current!.value;
 
-    if(enteredEmail===storedEmail){
-      alert("شما قبلا با این ایمیل در کوئیز شرکت کرده اید")
+    if (enteredEmail === storedEmail) {
+      alert("شما قبلا با این ایمیل در کوئیز شرکت کرده اید");
       return;
     }
 
     const formIsValid = enteredName.length > 3 && validateEmail(enteredEmail);
-    if(!formIsValid){
-        setFormHasError(true);
-        return; 
+    if (!formIsValid) {
+      setFormHasError(true);
+      return;
     }
     if (formIsValid) {
       localStorage.setItem("name", nameInputRef.current!.value);

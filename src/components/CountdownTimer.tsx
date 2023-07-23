@@ -7,7 +7,7 @@ type Props = {
 
 function CountdownTimer({ initialMinute, handleTimeout }: Props) {
   const [minutes, setMinutes] = useState(initialMinute);
-  const [seconds, setSeconds] = useState(0);
+  const [seconds, setSeconds] = useState(10);
 
   useEffect(() => {
     let myInterval = setInterval(() => {
