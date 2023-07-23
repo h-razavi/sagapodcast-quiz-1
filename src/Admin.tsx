@@ -8,6 +8,7 @@ type dataType = {
   email: string;
   score: number;
   userID?: string;
+  createdAt : string;
 }[];
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -61,18 +62,22 @@ function Admin({}: Props) {
               <div className="w-[33%] border-l-4 border-white p-4">نام</div>
               <div className="w-[33%] border-l-4 border-white p-4">ایمیل</div>
               <div className="w-[33%] border-l-4 border-white p-4">امتیاز</div>
+              <div className="w-[33%] border-l-4 border-white p-4">تاریخ ثبت</div>
             </div>
             {data &&
               data.map((user) => (
                 <div className="w-full flex justify-between border-b-4 text-blue-200 text-2xl">
-                  <div className="w-[33%] border-l-4 border-white p-4">
+                  <div className="w-[33%] border-l-4 border-white p-4 text-wrap">
                     {user.name}
                   </div>
-                  <div className="w-[33%] border-l-4 border-white p-4">
+                  <div className="w-[33%] border-l-4 border-white p-4 break-all">
                     {user.email}
                   </div>
                   <div className="w-[33%] border-l-4 border-white p-4">
                     {user.score}
+                  </div>
+                  <div className="w-[33%] border-l-4 border-white p-4">
+                    {user.createdAt}
                   </div>
                 </div>
               ))}

@@ -13,7 +13,6 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-console.log(supabaseUrl)
 
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
@@ -23,6 +22,8 @@ function App() {
   const name = localStorage.getItem("name");
   const email = localStorage.getItem("email");
   const userID = localStorage.getItem("userID")
+  const now = new Date();
+  const createdAt = now.toISOString().split("T")[0]
 
   function handleComponentChange() {
     if (currentComponentIndex < componentFlow.length - 1) {
@@ -37,7 +38,7 @@ function App() {
     setLoading(true)
     const { error } = await supabase
       .from("users")
-      .insert({ name, email, score , userID })
+      .insert({ name, email, score , userID , createdAt })
       .select();
     console.log(error);
     setLoading(false)
