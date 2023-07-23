@@ -13,6 +13,8 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+console.log(supabaseUrl)
+
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
   const [loading , setLoading] = useState(false)
