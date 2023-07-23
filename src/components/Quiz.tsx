@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 //
 import quizData, { AnswerType } from "../data/data";
@@ -6,6 +6,7 @@ import quizData, { AnswerType } from "../data/data";
 import Container from "./Container";
 import QuizOption from "./QuizOption";
 import Modal from "./Modal";
+import CountdownTimer from "./CountdownTimer";
 
 type Props = {
   onNext: () => void;
@@ -17,6 +18,8 @@ function Quiz({ onNext }: Props) {
   const [currentUserScore, setCurrentUserScore] = useState(0);
   const [quizIsCompleted, setQuizIsCompleted] = useState(false);
   const [optionSelected, setOptionSelected] = useState(false);
+
+  
 
   const currentQuestion = quizData[currentQuestionIndex];
 
@@ -33,6 +36,9 @@ function Quiz({ onNext }: Props) {
       setOptionSelected(false);
     }, 1000);
   }
+
+
+  //Registering the current user score to localStorage
   useEffect(() => {
     localStorage.setItem("userScore", currentUserScore.toString());
   }, [currentUserScore]);
@@ -52,12 +58,13 @@ function Quiz({ onNext }: Props) {
               {currentUserScore}
             </div>
           </div>
+            <CountdownTimer initialMinute={5} handleTimeout={onNext} />
           <h2 className="text-question font-extrabold text-2xl md:text-3xl mx-4 mb-4">
             {currentQuestion.question}
           </h2>
           <ul>
             {currentQuestion.answers
-              // .sort(() => Math.random() - 0.5)  //check later to randomize answers
+              //.sort(() => Math.random() - 0.5)  //check later to randomize answers
               .map((answer) => (
                 <li key={answer.text}>
                   <QuizOption
