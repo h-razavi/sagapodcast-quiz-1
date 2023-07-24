@@ -26,15 +26,15 @@ function Footer({}: Props) {
   return (
     <>
       <button
-        className={`text-white bg-cyan-400 rounded-full h-8 w-8 grid place-items-center fixed bottom-1 ease-in-out transition duration-1000 ${
-          !footerIsUp ? "translate-y-0 " : `-translate-y-16 rotate-180 `
+        className={`text-white bg-teal-400 rounded-full h-8 w-8 grid place-items-center fixed bottom-1 ease-in-out transition duration-1000 ${
+          !footerIsUp ? "translate-y-0 " : `-translate-y-16 -rotate-180 `
         }`}
         onClick={!footerIsUp ? handleOpenFooter : handleCloseFooter}
       >
         &#9650;
       </button>
       <footer
-        className={`fixed bottom-0 w-full h-16 bg-black bg-opacity-60 px-12 flex items-center justify-between text-sm lg:text-md ease-in-out transition duration-1000 ${
+        className={`fixed bottom-0 w-full h-16 bg-black bg-opacity-60 px-12 flex items-center justify-between text-xs lg:text-md ease-in-out transition duration-1000 ${
           !footerIsUp ? "translate-y-16 " : `translate-y-0`
         }`}
       >
