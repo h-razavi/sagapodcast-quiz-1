@@ -59,7 +59,7 @@ function Quiz({ onNext }: Props) {
             initialMinute={5}
             handleTimeout={() => setQuizIsCompleted(true)}
           />
-          <h2 className="text-question font-extrabold text-2xl md:text-3xl mx-4 mb-4">
+          <h2 className="text-question font-extrabold text-xl md:text-3xl mx-4 mb-4">
             {currentQuestion.question}
           </h2>
           <ul>

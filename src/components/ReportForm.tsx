@@ -42,7 +42,7 @@ console.log(email,text)
         type="email"
         name="email"
         id="email"
-        className="bg-slate-100 w-1/2 p-2 rounded-md"
+        className="bg-slate-100 w-3/4 md:w-1/2 p-2 rounded-md"
         placeholder="ایمیل*"
         onChange={(e)=>setEmail(e.target.value)}
       />
@@ -52,7 +52,7 @@ console.log(email,text)
         id="desc"
         cols={30}
         rows={10}
-        className="bg-slate-100 w-1/2 p-2 rounded-md"
+        className="bg-slate-100 w-3/4 md:w-1/2 p-2 rounded-md"
         placeholder="َشرح مشکل پیش آمده*"
         onChange={(e)=>setText(e.target.value)}
       ></textarea>

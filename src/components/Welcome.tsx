@@ -30,15 +30,15 @@ function Welcome({ onNext }: Props) {
       className="text-center"
     >
       <Container>
-        <h2 className="text-4xl font-bold my-2 text-question">سلام!</h2>
-        <h2 className="text-2xl font-bold my-4 text-question">
+        <h2 className="md:text-4xl text-2xl font-bold my-2 text-question">سلام!</h2>
+        <h2 className="md:text-2xl text-xl font-bold my-4 text-question">
           به اولین کوئیز پادکست ساگا خوش اومدید!
         </h2>
-        <p className="font-light italic text-question opacity-75 mx-8">
+        <p className="font-light italic text-question opacity-75 mx-8 p-2">
           این کوئیز شامل 20 سوال چهار گزینه‌ای هست که دانش شما رو در زمینه
           اساطیر و افسانه‌ها تست می‌کنه
         </p>
-        <p className="font-bold">
+        <p className="font-bold px-4">
           لطفاً قبل از شروع{" "}
           <span
             onClick={handleOpenModal}
