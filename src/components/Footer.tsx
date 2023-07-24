@@ -34,7 +34,7 @@ function Footer({}: Props) {
         &#9650;
       </button>
       <footer
-        className={`fixed bottom-0 w-full h-16 bg-black bg-opacity-60 px-12 flex items-center justify-between text-xs lg:text-md ease-in-out transition duration-1000 ${
+        className={`fixed bottom-0 w-full h-16 bg-black bg-opacity-60 md:px-12 px-2 flex items-center justify-between text-xs lg:text-md ease-in-out transition duration-1000 ${
           !footerIsUp ? "translate-y-16 " : `translate-y-0`
         }`}
       >
