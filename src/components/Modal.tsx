@@ -6,7 +6,7 @@ type Props = {
   hasButton? : boolean;
 };
 
-function Modal({ onCloseModal, modalOption , hasButton }: Props) {
+function Modal({ onCloseModal, modalOption , hasButton=true }: Props) {
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -79,7 +79,7 @@ function Modal({ onCloseModal, modalOption , hasButton }: Props) {
               )}
             </div>
           </div>
-          {!!hasButton&&
+          {hasButton&&
           <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
             <button
               type="button"
