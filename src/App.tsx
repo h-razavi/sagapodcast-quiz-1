@@ -1,16 +1,13 @@
 import { useState } from "react";
 //
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "./supabaseClient";
 //
 import Quiz from "./components/Quiz";
 import QuizResults from "./components/QuizResults";
 import Welcome from "./components/Welcome";
 import Final from "./components/Final";
+import Footer from "./components/Footer";
 
-//configuring supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
@@ -54,8 +51,9 @@ function App() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center py-12 px-24  bg-welcomeBG bg-repeat lg:overflow-hidden overflow-auto bg-fixed">
+    <main className="flex min-h-screen flex-col justify-evenly items-center py-12 px-24  bg-welcomeBG bg-repeat lg:overflow-hidden overflow-auto bg-fixed">
       {componentFlow[currentComponentIndex].component}
+      <Footer />
     </main>
   );
 }

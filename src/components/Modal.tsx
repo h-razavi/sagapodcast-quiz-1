@@ -1,9 +1,12 @@
+import ReportForm from "./ReportForm";
+
 type Props = {
   onCloseModal: () => void;
-  modalOption: "rules" | "outro";
+  modalOption: "rules" | "outro" | "report";
+  hasButton? : boolean;
 };
 
-function Modal({ onCloseModal, modalOption }: Props) {
+function Modal({ onCloseModal, modalOption , hasButton }: Props) {
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -62,7 +65,7 @@ function Modal({ onCloseModal, modalOption }: Props) {
                     </li>
                   </ul>
                 </div>
-              ) : (
+              ) : modalOption === "outro" ? (
                 <div>
                   <h2 className="text-2xl mx-4 text-question font-extrabold">
                     ممنون از شما به خاطر شرکت در این کوئیز!
@@ -71,18 +74,22 @@ function Modal({ onCloseModal, modalOption }: Props) {
                     برای ارسال و مشاهده نتایج دکمه زیر رو بزنید
                   </p>
                 </div>
+              ) : (
+                <ReportForm closeModal={onCloseModal} />
               )}
             </div>
           </div>
+          {!!hasButton&&
           <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
             <button
               type="button"
               onClick={onCloseModal}
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
-              {modalOption === "rules" ? "متوجه شدم" : "ادامه"}
+              {modalOption === "rules" ? "متوجه شدم" : modalOption==="outro" ? "ادامه" : ""}
             </button>
           </div>
+}
         </div>
       </div>
     </div>
