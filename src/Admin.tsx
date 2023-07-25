@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "./supabaseClient";
+
 
 type Props = {};
 
-type dataType = {
+type DataType = {
   name: string;
   email: string;
   score: number;
@@ -11,12 +12,9 @@ type dataType = {
   createdAt: string;
 }[];
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 function Admin({}: Props) {
-  const [data, setData] = useState<dataType | null>();
+  const [data, setData] = useState<DataType | null>();
   const [hasAccess, setHasAccess] = useState(false);
   const [enteredPassword, setEnteredPassword] = useState("");
 
@@ -70,7 +68,7 @@ function Admin({}: Props) {
             </div>
             {data &&
               data.map((user) => (
-                <div className="w-full flex justify-between border-b-4 text-blue-200 text-2xl">
+                <div className="w-full flex justify-between border-b-4 text-blue-200 text-2xl" key={user.email}>
                   <div className="w-[33%] border-l-4 border-white p-4 text-wrap">
                     {user.name}
                   </div>
