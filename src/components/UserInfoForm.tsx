@@ -45,7 +45,7 @@ function UserInfoForm({ onNext }: Props) {
       return;
     }
 
-    const formIsValid = enteredName.length > 3 && validateEmail(enteredEmail);
+    const formIsValid = enteredName.length > 1 && validateEmail(enteredEmail);
     if (!formIsValid) {
       setFormHasError(true);
       return;
