@@ -6,7 +6,7 @@ type Props = {
 
 function Container({ children }: Props) {
   return (
-    <div className="border-2 border-white bg-cardSMall md:bg-card bg-card  bg-no-repeat bg-left-bottom rounded-lg h-min md:h-[80dvh] w-[80vw] flex flex-col items-center justify-center relative ">
+    <div className="border-2 border-white bg-cardSMall md:bg-card bg-card  bg-no-repeat bg-left-bottom rounded-lg h-max md:h-[80dvh] w-[80vw] flex flex-col items-center justify-center relative ">
       {children}
     </div>
   );
