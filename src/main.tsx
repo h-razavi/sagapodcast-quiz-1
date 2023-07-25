@@ -8,11 +8,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import Admin from "./Admin.tsx";
 import Reports from "./Reports.tsx";
+import NotFound from "./NotFound.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound />
   },
   {
     path: "/minad",
