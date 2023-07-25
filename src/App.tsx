@@ -51,7 +51,7 @@ function App() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col justify-evenly items-center py-12 px-24  bg-welcomeBG bg-repeat lg:overflow-hidden overflow-auto bg-fixed">
+    <main className="flex h-fit md:min-h-screen flex-col justify-evenly items-center py-12 px-24  bg-welcomeBG bg-repeat lg:overflow-hidden overflow-auto overflow-x-hidden bg-fixed">
       {componentFlow[currentComponentIndex].component}
       <Footer />
     </main>
