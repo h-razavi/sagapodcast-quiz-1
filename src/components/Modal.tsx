@@ -40,8 +40,8 @@ function Modal({ onCloseModal, modalOption , hasButton=true }: Props) {
                   </h3>
                   <ul className="font-light italic text-md">
                     <li className="list-disc list-inside pr-4 my-4">
-                      هر شخص فقط یک بار قادر به شرکت در این کوئیز است. در صورت
-                      تکرار فرد از قرعه‌کشی نهائی حذف می‌شود{" "}
+                      هر شخص فقط یک بار قادر به ثبت امتیاز در این کوئیز است. شما می‌توانید برای مرور سوالات به تعداد دفعات دلخواه در کوئیز شرکت کنید، ولی در صورت
+                      تکرار ثبت امتیاز فرد از قرعه‌کشی نهائی حذف خواهد شد.{" "}
                     </li>
                     <li className="list-disc list-inside pr-4 my-4">
                       پس از قرعه‌کشی از طریق ایمیل با برندگان تماس گرفته خواهد

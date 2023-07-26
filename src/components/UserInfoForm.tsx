@@ -14,6 +14,7 @@ function UserInfoForm({ onNext }: Props) {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const storedEmail = localStorage.getItem("email");
+
   localStorage.setItem("userID", uuidv4());
 
   const validateEmail = (email: string) => {
