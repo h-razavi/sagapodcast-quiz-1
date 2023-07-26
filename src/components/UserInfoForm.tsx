@@ -26,7 +26,7 @@ function UserInfoForm({ onNext }: Props) {
     const enteredName = nameInputRef.current!.value;
     const enteredEmail = emailInputRef.current!.value;
 
-    const formIsValid = enteredName.length > 3 && validateEmail(enteredEmail);
+    const formIsValid = enteredName.length > 2 && validateEmail(enteredEmail);
 
     if (!formIsValid) {
       setFormHasError(true);

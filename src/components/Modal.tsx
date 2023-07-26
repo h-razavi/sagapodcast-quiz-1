@@ -3,10 +3,10 @@ import ReportForm from "./ReportForm";
 type Props = {
   onCloseModal: () => void;
   modalOption: "rules" | "outro" | "report";
-  hasButton? : boolean;
+  hasButton?: boolean;
 };
 
-function Modal({ onCloseModal, modalOption , hasButton=true }: Props) {
+function Modal({ onCloseModal, modalOption, hasButton = true }: Props) {
   return (
     <div
       className="fixed z-10 inset-0 overflow-y-auto"
@@ -40,8 +40,10 @@ function Modal({ onCloseModal, modalOption , hasButton=true }: Props) {
                   </h3>
                   <ul className="font-light italic text-md">
                     <li className="list-disc list-inside pr-4 my-4">
-                      هر شخص فقط یک بار قادر به ثبت امتیاز در این کوئیز است. شما می‌توانید برای مرور سوالات به تعداد دفعات دلخواه در کوئیز شرکت کنید، ولی در صورت
-                      تکرار ثبت امتیاز فرد از قرعه‌کشی نهائی حذف خواهد شد.{" "}
+                      هر شخص فقط یک بار قادر به ثبت امتیاز در این کوئیز است. شما
+                      می‌توانید برای مرور سوالات به تعداد دفعات دلخواه در کوئیز
+                      شرکت کنید، ولی در صورت تکرار ثبت امتیاز فرد از قرعه‌کشی
+                      نهائی حذف خواهد شد.{" "}
                     </li>
                     <li className="list-disc list-inside pr-4 my-4">
                       پس از قرعه‌کشی از طریق ایمیل با برندگان تماس گرفته خواهد
@@ -79,17 +81,21 @@ function Modal({ onCloseModal, modalOption , hasButton=true }: Props) {
               )}
             </div>
           </div>
-          {hasButton&&
-          <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button
-              type="button"
-              onClick={onCloseModal}
-              className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-            >
-              {modalOption === "rules" ? "متوجه شدم" : modalOption==="outro" ? "ادامه" : ""}
-            </button>
-          </div>
-}
+          {hasButton && (
+            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <button
+                type="button"
+                onClick={onCloseModal}
+                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+              >
+                {modalOption === "rules"
+                  ? "متوجه شدم"
+                  : modalOption === "outro"
+                  ? "ادامه"
+                  : ""}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
